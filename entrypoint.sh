@@ -38,6 +38,7 @@ else
   ss="ss://$(echo -n ${ENCRYPT}:${Password} | base64 -w 0)@${Domain}:443?plugin=${plugin}" 
   echo "${ss}" | tr -d '\n' > /wwwroot/index.html
   echo -n "${ss}" | qrencode -s 6 -o /wwwroot/vpn.png
+  cat /wwwroot/index.html
 fi
 
 ss-server -c /etc/shadowsocks-libev/config.json &
